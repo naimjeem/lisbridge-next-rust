@@ -1,6 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { deviceStore } from '@/lib/store';
 import { DeviceStatus } from '@/types/device';
+import { addCorsHeaders, handleOptionsRequest } from '@/lib/cors';
+
+export async function OPTIONS(request: NextRequest) {
+  return handleOptionsRequest(request.headers.get('origin'));
+}
 
 export async function GET(request: NextRequest) {
   try {
@@ -9,21 +14,23 @@ export async function GET(request: NextRequest) {
 
     // Validate status if provided
     if (status && status !== 'online' && status !== 'offline') {
-      return NextResponse.json(
+      const response = NextResponse.json(
         { error: 'Invalid status parameter. Must be "online" or "offline"' },
         { status: 400 }
       );
+      return addCorsHeaders(response, request.headers.get('origin'));
     }
 
     const devices = deviceStore.findAll(status || undefined);
-    
-    return NextResponse.json(devices);
+    const response = NextResponse.json(devices);
+    return addCorsHeaders(response, request.headers.get('origin'));
   } catch (error) {
     console.error('Error fetching devices:', error);
-    return NextResponse.json(
+    const response = NextResponse.json(
       { error: 'Failed to fetch devices' },
       { status: 500 }
     );
+    return addCorsHeaders(response, request.headers.get('origin'));
   }
 }
 
