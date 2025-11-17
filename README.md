@@ -2,7 +2,8 @@
 
 A full-stack device monitoring dashboard built with Next.js, TypeScript, and Tailwind CSS for managing laboratory devices and viewing test results. Available as both a web application and a cross-platform desktop app.
 
-**Repository**: [https://github.com/naimjeem/lisbridge-next-rust](https://github.com/naimjeem/lisbridge-next-rust)
+**🌐 Live Demo**: [https://lisbridge.vercel.app](https://lisbridge.vercel.app)  
+**📦 Repository**: [https://github.com/naimjeem/lisbridge-next-rust](https://github.com/naimjeem/lisbridge-next-rust)
 
 ## Features
 
@@ -71,6 +72,8 @@ npm run dev
 The application will automatically redirect to `/login`. Use the following credentials:
 - **Username**: `admin`
 - **Password**: `admin123`
+
+**🌐 Or try the live version**: [https://lisbridge.vercel.app](https://lisbridge.vercel.app)
 
 ### Desktop Application
 
@@ -251,7 +254,7 @@ See [NOTES.md](./NOTES.md) for detailed information about:
 3. Vercel will automatically detect Next.js and configure the build
 4. Deploy!
 
-The application will be available at `https://your-project.vercel.app`
+**✅ Live Application**: [https://lisbridge.vercel.app](https://lisbridge.vercel.app)
 
 ### Deploy to Railway
 
